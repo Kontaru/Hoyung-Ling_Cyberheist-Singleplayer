@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
 
     public GameObject[] spawnList;
-    public SpawnObject[] spawns;
+    public List<SpawnObject> spawns = new List<SpawnObject>(0);
     public int max_enemies = 20;
     public int enemycount = 0;
     SpawnObject current;
@@ -60,7 +60,7 @@ public class SpawnManager : MonoBehaviour
 
     void ChoosePosition()
     {
-        newspawn = spawns[Random.Range(0, spawns.Length)];
+        newspawn = spawns[Random.Range(0, spawns.Count)];
 
         if (newspawn.spawnLimit != 0)
         {

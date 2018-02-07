@@ -14,6 +14,7 @@ public class SpawnObject : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+        SpawnManager.instance.spawns.Add(this);
         pos = transform.position;
         rot = transform.rotation;
 	}
