@@ -45,22 +45,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1359752860472836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4547070930483436}
-  - component: {fileID: 108377833700334780}
-  m_Layer: 0
-  m_Name: Spotlight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1538151142848044
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +107,6 @@ GameObject:
   - component: {fileID: 136837153919009834}
   - component: {fileID: 195653066350849286}
   - component: {fileID: 114658476756243406}
-  - component: {fileID: 114187226699174932}
   m_Layer: 0
   m_Name: Sentinel
   m_TagString: Untagged
@@ -222,19 +205,6 @@ Transform:
   m_Father: {fileID: 4946650448454060}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4547070930483436
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1359752860472836}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 8.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4946650448454060}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4679935778820586
 Transform:
   m_ObjectHideFlags: 1
@@ -270,13 +240,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705104415274074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.781336, y: -6.298078e-17, z: 85.09206}
+  m_LocalPosition: {x: 15.994438, y: 6.759925e-17, z: -5.167206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4679935778820586}
   - {fileID: 4526633994010806}
   - {fileID: 4392901197774808}
-  - {fileID: 4547070930483436}
   - {fileID: 224438491031782128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -457,56 +426,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!108 &108377833700334780
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1359752860472836}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 0
-  m_Color: {r: 0.57882786, g: 0.5867363, b: 0.74264705, a: 1}
-  m_Intensity: 10
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!114 &114187226699174932
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1705104415274074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843275e82c8102241b8a8f31955c3812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyOnDeath: 1
-  currentHealth: 100
-  healthBar: {fileID: 224438491031782128}
 --- !u!114 &114485829735632308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 2
+  enemyType: 2
   targets:
   - reference: {fileID: 0}
     dist: 0
@@ -583,9 +503,11 @@ MonoBehaviour:
     dist: 0
   huntDistance: 20
   combatDistance: 15
+  damage: 5
+  accuracy: 8
   go_projectilePrefab: {fileID: 1999545829503544, guid: efb6e22dda26dea44ae8bbfc737c9015,
     type: 2}
-  fl_shotCooldown: 3
+  fl_shotCooldown: 6
 --- !u!114 &114747060715182472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -730,7 +652,7 @@ RectTransform:
   m_Children:
   - {fileID: 224963574053569152}
   m_Father: {fileID: 4946650448454060}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -21,7 +21,7 @@ public class Enemy_Bullet : Bullet
                 if (coll.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player)
                 {
                     //Send damage depending on what kind of enemy has been hit
-                    coll.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+                    //coll.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
                     //Destroy the bullet
                     Destroy(gameObject);
                 }

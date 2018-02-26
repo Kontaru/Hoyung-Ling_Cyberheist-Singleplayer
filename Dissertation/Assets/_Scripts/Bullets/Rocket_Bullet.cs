@@ -29,7 +29,11 @@ public class Rocket_Bullet : Bullet {
         //If there is a collider
         if (coll != null)
         {
-            var possibleTargets = Physics.OverlapSphere(transform.position, 10);
+            if (coll.gameObject.GetComponent<Entity>() != null)
+                if (coll.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player)
+                    return;
+
+            var possibleTargets = Physics.OverlapSphere(transform.position, 8);
             List<Entity> entities = new List<Entity>();
             foreach (var target in possibleTargets)
             {

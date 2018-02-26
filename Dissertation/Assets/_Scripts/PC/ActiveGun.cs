@@ -32,7 +32,8 @@ public class ActiveGun : MonoBehaviour
     {
         if (pickup != null)
         {
-            weapon.gameObject.SetActive(false);
+            //weapon.gameObject.SetActive(false);
+            Destroy(weapon.gameObject);
             weapon = pickup;
             pickup = null;
             SpawnGun();

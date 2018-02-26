@@ -57,3 +57,53 @@ MonoBehaviour:
   GO_Player:
   - {fileID: 0}
   - {fileID: 0}
+  CurrentDifficulty: 0
+  Modes:
+  - name: Easy
+    mode: 1
+    description: For those looking for a relaxed experience. Enemies are less accurate
+      and less aware of your presence. You can play without any worry. You do not
+      even need to use cover.
+    modPlayerHP: 1.3
+    modEnemyHP: 0.7
+    modEnemyFR: 0.7
+    modEnemyAwareness: 0.7
+  - name: Medium
+    mode: 2
+    description: The difficulty that you have been experiencing thus far. Enemies
+      have decent aim, that or a soldier. You can play expecting some adversary. You
+      can expect to feel safe when using cover, and moving from two points will be
+      easy.
+    modPlayerHP: 1
+    modEnemyHP: 1
+    modEnemyFR: 1
+    modEnemyAwareness: 1
+  - name: Hard
+    mode: 3
+    description: "For those looking for a challenge. Enemies are seasoned \u2013 they
+      have certainly experienced rough combat, are aware of your presence. You can
+      expect fierce opposition. With the number of enemies, you may need to reposition
+      often."
+    modPlayerHP: 0.9
+    modEnemyHP: 1.1
+    modEnemyFR: 1
+    modEnemyAwareness: 1.5
+  - name: Intense
+    mode: 4
+    description: This teleporter has been damaged, causing strange mutations in enemies.
+      Their awareness is sharp, their abilities unparalleled. Even a small handful
+      of units can present difficulty. If you enter this world, use your mobility
+      to move around constantly.
+    modPlayerHP: 0.7
+    modEnemyHP: 1.4
+    modEnemyFR: 1.1
+    modEnemyAwareness: 2
+  currentMode:
+    name: 
+    mode: 0
+    description: 
+    modPlayerHP: 0
+    modEnemyHP: 0
+    modEnemyFR: 0
+    modEnemyAwareness: 0
+  BL_Pause: 0

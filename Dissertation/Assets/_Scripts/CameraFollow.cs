@@ -48,6 +48,10 @@ public class CameraFollow : MonoBehaviour {
 
         //Sets the position of this gameobject to the "parent"
         transform.position = Vector3.Lerp(transform.position, parentGo.transform.position, speed * Time.deltaTime);
+
+        //Third Person Camera
+        //transform.position = parentGo.transform.position;
+        //transform.rotation = parentGo.transform.rotation;
     }
 
     //After a few seconds, make the thing we're looking at = null, which should stop the camera from ever tracking this item.

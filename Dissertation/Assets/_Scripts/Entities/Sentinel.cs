@@ -5,14 +5,6 @@ using UnityEngine.Networking;
 
 public class Sentinel : BaseEnemy {
 
-	// Use this for initialization
-	override public void Start () {
-
-        base.Start();
-        BL_startAsCombat = true;
-        CurrentState = State.Hunt;
-	}
-
     public override void FireBullet()
     {
         base.FireBullet();

@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdd4bff82e72d44393df5d992dcbda2, type: 3}
   m_Name: DefaultGun
   m_EditorClassIdentifier: 
-  name: Trusty
+  name: Default
   description: Infinite ammo
   bullet: {fileID: 1268593870044156, guid: e9dc19232c078194da70321d091d9dad, type: 2}
   damage: 40
-  fireRate: 120
+  fireRate: 400
   reloadTime: 3
   maxAmmo: 999
   clipSize: 30

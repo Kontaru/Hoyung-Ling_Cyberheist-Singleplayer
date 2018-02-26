@@ -17,10 +17,10 @@ class Popup
 
 class MessagePopup : MonoBehaviour
 {
-
     public float interactableDist;
     float FL_P1_dist;
     float FL_P2_dist;
+    public bool BL_oneLook = false;
 
     public Popup[] Notice;
     int count = 0;
@@ -57,7 +57,7 @@ class MessagePopup : MonoBehaviour
             }
             if(indicator != null) indicator.SetActive(false);
         }
-        else
+        else if (FL_P1_dist > interactableDist + 2 && FL_P2_dist > interactableDist + 2)
         {
             foreach (Popup popup in Notice)
             {

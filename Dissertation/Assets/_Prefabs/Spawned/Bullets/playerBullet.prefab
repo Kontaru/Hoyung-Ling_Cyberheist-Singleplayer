@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dec881ab54268a41842cdff498dd929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  damage: 40
-  killAfter: 10
+  speed: 140
+  damage: 0
+  killAfter: 0.5
   sound: 
 --- !u!135 &135502727020520500
 SphereCollider:

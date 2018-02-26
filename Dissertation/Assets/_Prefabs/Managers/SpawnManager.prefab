@@ -19,7 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4689934822382838}
-  - component: {fileID: 114170950928957154}
+  - component: {fileID: 114245349372201054}
+  - component: {fileID: 114899581589444224}
+  - component: {fileID: 114617368557706904}
+  - component: {fileID: 114442442888020190}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -40,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114170950928957154
+--- !u!114 &114245349372201054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,15 +51,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825754718606392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1499ef5bb9b8348a485aaf074808ca, type: 3}
+  m_Script: {fileID: 11500000, guid: b8a1b433559a90e469492a0a6644e0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnList: []
-  spawns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  max_enemies: 20
+  spawns: []
+  spawnLim: 3
   enemycount: 0
+  BL_CanSpawn: 1
+--- !u!114 &114442442888020190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825754718606392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce138b056effd55449c5c6cb40e503c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveEnd: 0
+  requiredCount: 2
+  killCount: 0
+--- !u!114 &114617368557706904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825754718606392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31c988701381cb43a248995730b3ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnList: []
+  spawns: []
+  spawnLim: 8
+  enemycount: 0
+  BL_CanSpawn: 0
+--- !u!114 &114899581589444224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825754718606392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890f107065504984e8368709b3e543da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnList: []
+  spawns: []
+  spawnLim: 20
+  enemycount: 0
+  BL_CanSpawn: 1

@@ -9,8 +9,9 @@ public class LoadGame : MonoBehaviour {
     {
         if (other.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player)
         {
+            GameManager.instance.CurrentDifficulty = setting;
+            GameManager.instance.SetDifficultyMode();
             GameManager.instance.NextScene();
-            GameManager.instance.Difficulty = setting;
         }
     }
 }

@@ -15,26 +15,32 @@ public class Bob : MonoBehaviour {
     public float degree_y = 0;
     public float degree_z = 0;
 
+    public float delayedOffSet = 0;
+
     Vector3 home;
     Vector3 destination;
 
     // Use this for initialization
     void Start () {
         if (!offset_x)
-            degree_x = transform.position.x;
+            degree_x = 0;
         if (!offset_y)
-            degree_y = transform.position.y;
+            degree_y = 0;
         if (!offset_z)
-            degree_z = transform.position.z;
+            degree_z = 0;
 
-        home = transform.position;
-        destination = new Vector3(degree_x, degree_y, degree_z);
+        home = transform.localPosition;
+        destination = new Vector3(transform.localPosition.x + degree_x,
+            transform.localPosition.y + degree_y,
+            transform.localPosition.z + degree_z);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        transform.position = Vector3.Lerp(home, destination, interval);
+        if (Time.time < delayedOffSet) return;
+
+        transform.localPosition = Vector3.Lerp(home, destination, interval);
 
         interval += Time.deltaTime * rate;
         if (interval > 1 || interval < 0)

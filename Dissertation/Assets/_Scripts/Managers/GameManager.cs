@@ -4,6 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class StatAdjustment
+{
+    public string name;
+    public GameManager.DifficultySettings mode;
+    [TextArea(2, 10)]
+    public string description;
+    public float modEnemyHP;
+    public float modEnemyFR;
+    public float modEnemyAwareness;
+}
+
 public class GameManager : MonoBehaviour
 {
 
@@ -18,6 +30,10 @@ public class GameManager : MonoBehaviour
         Intense
     }
 
+    [Header("Loading Slider")]
+    [HideInInspector] public GameObject loadingScreen;
+    [HideInInspector] public Slider slider;
+
     [Header("Inputs")]
     public KeyCode KC_Shoot;
     public KeyCode KC_Missile;
@@ -27,9 +43,12 @@ public class GameManager : MonoBehaviour
     public GameObject[] GO_Player = new GameObject[2];
 
     [Header("Difficulty")]
-    public DifficultySettings Difficulty;
+    public DifficultySettings CurrentDifficulty;
+    public StatAdjustment[] Modes;
+    public StatAdjustment currentMode;
 
     public bool BL_Pause;
+    public float totalKillCount;
 
     void Awake()
     {
@@ -44,17 +63,44 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    public void SetDifficultyMode()
+    {
+        foreach (StatAdjustment var in Modes)
+        {
+            if (CurrentDifficulty == var.mode)
+            {
+                currentMode = var;
+                return;
+            }
+        }
+    }
+
     #region ~ Scene Related ~
 
     public void NextScene()
     {
-        if (SceneManager.GetActiveScene().buildIndex < 2)
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+            StartCoroutine(LoadAsynchronously());
         }
-        else
+    }
+
+    IEnumerator LoadAsynchronously ()
+    {
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(nextScene);
+        operation.allowSceneActivation = false;
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
         {
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            slider.value = progress;
+
+            if (operation.progress == 0.9f)
+                operation.allowSceneActivation = true;
+
+            yield return null;
         }
     }
 
@@ -77,5 +123,6 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 1;
     }
+
     #endregion
 }

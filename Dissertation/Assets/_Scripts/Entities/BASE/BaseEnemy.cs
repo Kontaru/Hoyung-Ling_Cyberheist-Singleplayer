@@ -14,6 +14,15 @@ abstract public class BaseEnemy : Entity {
 
     protected NavMeshAgent nav_Agent;
 
+    public enum Type
+    {
+        Starter,
+        Basic,
+        Sentinel,
+    }
+
+    public Type enemyType;
+
     public enum State
     {
         Idle,
@@ -29,8 +38,10 @@ abstract public class BaseEnemy : Entity {
     public Target[] targets = new Target[2];
     public float huntDistance;
     public float combatDistance;
+    public int damage;
+    public int accuracy;
+    float speed;
 
-    protected bool BL_startAsCombat = false;
     public static bool BL_allCombat = false;
     protected Vector3 V_Target;
     protected Vector3 V_Home;
@@ -42,14 +53,13 @@ abstract public class BaseEnemy : Entity {
     public float fl_shotCooldown;
     private float FL_Cooldown;
 
-    private float FL_lerpRate = 10f;
-
     // Use this for initialization
     virtual public void Start ()
     {
         V_Home = transform.position;
         CurrentState = State.Idle;
         nav_Agent = GetComponent<NavMeshAgent>();
+        speed = nav_Agent.speed;
     }
 	
 	// Update is called once per frame
@@ -110,7 +120,7 @@ abstract public class BaseEnemy : Entity {
     {
         //State switching
 
-        if (CurrentState == State.Idle && !BL_startAsCombat)
+        if (CurrentState == State.Idle)
             Idle();
         else if (CurrentState == State.Hunt)
             Hunt();
@@ -127,7 +137,11 @@ abstract public class BaseEnemy : Entity {
     {
         //Either move between waypoints or stay still
         //---
-        if (Vector3.Distance(transform.position, V_Target) < huntDistance) CurrentState = State.Hunt;
+        if (Vector3.Distance(transform.position, V_Target) < huntDistance || BL_allCombat)
+        {
+            nav_Agent.speed = speed * 1.5f;
+            CurrentState = State.Hunt;
+        }
     }
 
     //Hunt Mode
@@ -136,10 +150,15 @@ abstract public class BaseEnemy : Entity {
         nav_Agent.destination = V_Target;
 
         //---
-        if (Vector3.Distance(transform.position, V_Target) < combatDistance) CurrentState = State.Combat;
-        else if (Vector3.Distance(transform.position, V_Target) > huntDistance + 5 && !BL_startAsCombat && !BL_allCombat)
+        if (Vector3.Distance(transform.position, V_Target) < combatDistance)
+        {
+            nav_Agent.speed = speed * 1.8f;
+            CurrentState = State.Combat;
+        }
+        else if (Vector3.Distance(transform.position, V_Target) > huntDistance + 5 && !BL_allCombat)
         {
             nav_Agent.destination = V_Home;
+            nav_Agent.speed = speed;
             CurrentState = State.Idle;
         }
     }
@@ -160,12 +179,13 @@ abstract public class BaseEnemy : Entity {
         if (Time.time > FL_Cooldown)
         {
             FireBullet();
-            FL_Cooldown = Time.time + fl_shotCooldown;
+            FL_Cooldown = Time.time + fl_shotCooldown * GameManager.instance.currentMode.modEnemyFR;
         }
 
         //---
         if (Vector3.Distance(transform.position, V_Target) > combatDistance + 5)
         {
+            nav_Agent.speed = speed * 2;
             CurrentState = State.Hunt;
             V_Home = transform.position;
         }
@@ -174,8 +194,24 @@ abstract public class BaseEnemy : Entity {
     virtual public void FireBullet()
     {
         // Create a bullet and reset the shot timer
+        int v_accuracy = Random.Range(0, accuracy);
+        if (v_accuracy != 1)
+        {
+            GO_Target.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            Instantiate(go_projectilePrefab, 
+                transform.position + transform.TransformDirection(new Vector3(0, 1, 1.5F)), 
+                transform.rotation);
+        }
+        else
+        {
+            float angle = Random.Range(5, 15);
+            var rotation = transform.rotation;
+            rotation *= Quaternion.Euler(0, angle, 0);
 
-        var _bullet = (GameObject)Instantiate(go_projectilePrefab, transform.position + transform.TransformDirection(new Vector3(0, 1, 1.5F)), transform.rotation);
+            Instantiate(go_projectilePrefab, 
+                transform.position + transform.TransformDirection(new Vector3(0, 1, 1.5F)), 
+                rotation);
 
+        }
     }
 }

@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4957022091852618}
   - component: {fileID: 114509247695932734}
-  - component: {fileID: 114660685902872920}
   - component: {fileID: 65886483132714648}
   m_Layer: 0
   m_Name: SpawnPost - Sentinel
@@ -171,21 +170,11 @@ MonoBehaviour:
     type: 2}
   pos: {x: 0, y: 0, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
-  currentCount: 0
-  spawnLimit: 2
---- !u!114 &114660685902872920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1062145152423990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6b51e4bb01f034abcf6d17455ac90e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stayDuration: 1
-  position: {x: 0, y: 0, z: 0}
+  enemyType: 2
+  BL_hasSpawned: 0
+  BL_delayMySpawn: 0
+  BL_spawnOnce: 0
+  FL_spawnDelay: 15
 --- !u!114 &114778464228090708
 MonoBehaviour:
   m_ObjectHideFlags: 1

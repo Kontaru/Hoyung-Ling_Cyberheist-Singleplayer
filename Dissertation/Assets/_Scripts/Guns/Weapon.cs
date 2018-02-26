@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
+public class Weapon : MonoBehaviour
+{
 
     public Gun gun;
     public GameObject eject;
@@ -31,7 +32,7 @@ public class Weapon : MonoBehaviour {
     {
         CheckAmmo();
 
-        if(reload || !shoot)
+        if (reload || !shoot)
             StartCoroutine(Reload());
 
         if (shoot == true && clipEmpty == false)
@@ -73,7 +74,7 @@ public class Weapon : MonoBehaviour {
     void NoAmmo()
     {
         currentAmmo = 0;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public float ApplyCooldown(float coolDown)
@@ -93,7 +94,15 @@ public class Weapon : MonoBehaviour {
 
     void FireBullet()
     {
-        var _bullet = (GameObject)Instantiate(gun.bullet,
+        var fwd = transform.TransformDirection(Vector3.forward);
+        RaycastHit coll;
+        // Raycast to check if the view from the target to player runs into an obsticle, if not adding the target to the list of targets
+        if (Physics.Raycast(transform.position, fwd, out coll))
+        {
+            coll.transform.gameObject.SendMessage("TakeDamage", gun.damage, SendMessageOptions.DontRequireReceiver);
+        }
+
+        Instantiate(gun.bullet,
             eject.transform.position,
             eject.transform.rotation);
 

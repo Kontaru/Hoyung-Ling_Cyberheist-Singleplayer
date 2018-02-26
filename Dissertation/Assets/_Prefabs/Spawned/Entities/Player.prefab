@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1101988717390766
 GameObject:
   m_ObjectHideFlags: 1
@@ -581,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1433061377685284
 GameObject:
   m_ObjectHideFlags: 1
@@ -2616,7 +2616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityType: 1
-  Model: {fileID: 1087597738491532}
+  Model: {fileID: 1412817856316410}
 --- !u!114 &114386495815645724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3333,7 +3333,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
 --- !u!222 &222302452138301604
 CanvasRenderer:

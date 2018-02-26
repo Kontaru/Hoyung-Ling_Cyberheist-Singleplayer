@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Patrol : BaseEnemy
 {
-
-    List<Waypoint> waypoints = new List<Waypoint>();
+    public List<Waypoint> waypoints = new List<Waypoint>();
     public float delay;
     float distance;
     int current;
@@ -14,14 +13,17 @@ public class Patrol : BaseEnemy
     {
         base.Start();
 
-        var possibleTargets = Physics.OverlapSphere(transform.position, 15);
-        waypoints = new List<Waypoint>();
-        foreach (var target in possibleTargets)
+        if (waypoints.Count < 2)
         {
-            Waypoint waypoint = target.GetComponent<Waypoint>();
+            var possibleTargets = Physics.OverlapSphere(transform.position, 15);
+            waypoints = new List<Waypoint>();
+            foreach (var target in possibleTargets)
+            {
+                Waypoint waypoint = target.GetComponent<Waypoint>();
 
-            if (waypoint != null)
-                waypoints.Add(waypoint);
+                if (waypoint != null)
+                    waypoints.Add(waypoint);
+            }
         }
         current = 0;
     }
@@ -53,7 +55,7 @@ public class Patrol : BaseEnemy
         nav_Agent.destination = V_Target;
 
         if (Vector3.Distance(transform.position, V_Target) < combatDistance) CurrentState = State.Combat;
-        else if (Vector3.Distance(transform.position, V_Target) > huntDistance + 5 && !BL_startAsCombat && !BL_allCombat)
+        else if (Vector3.Distance(transform.position, V_Target) > huntDistance + 5 && !BL_allCombat)
         {
             nav_Agent.destination = V_Home;
 

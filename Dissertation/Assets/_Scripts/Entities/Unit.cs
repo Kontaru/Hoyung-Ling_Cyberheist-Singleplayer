@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Unit : BaseEnemy
 {
-
-    public bool startAsCombat = false;
-
     override public void Start()
     {
         base.Start();
-
-        BL_startAsCombat = startAsCombat;
     }
 
     public override void Idle()

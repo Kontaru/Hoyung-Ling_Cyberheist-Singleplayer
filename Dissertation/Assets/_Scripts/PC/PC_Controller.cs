@@ -16,14 +16,11 @@ public class PC_Controller : Entity
 
 
     //------- Rigidbody -----------
-    Rigidbody RB_PC;
-    NavMeshAgent nav_agent;
-    Vector3 direction;
+    //Rigidbody RB_PC;
+    //Vector3 direction;
 
     //------ Character Controller ----------
     CharacterController CC_Player;
-
-    ActiveGun activeGun;
     AMPunch amPunch;
 
     [Header("Movement")]
@@ -33,10 +30,6 @@ public class PC_Controller : Entity
     // Use this for initialization
     void Start()
     {
-        nav_agent = GetComponent<NavMeshAgent>();
-        //nav_agent.updatePosition = false;
-        //nav_agent.updateRotation = false;
-
         //Telling the GameManager who the players are
         for (int i = 0; i < GameManager.instance.GO_Player.Length; i++)
         {
@@ -45,7 +38,6 @@ public class PC_Controller : Entity
             {
                 //Make the gameobject this, and quit the cycle of sadness
                 GameManager.instance.GO_Player[i] = gameObject;
-                Debug.Log("Player added");
                 break;
             }
         }
@@ -54,7 +46,6 @@ public class PC_Controller : Entity
 
 
         //Some components
-        activeGun = GetComponent<ActiveGun>();
         amPunch = GetComponent<AMPunch>();
         //RB_PC = GetComponent<Rigidbody>();
         CC_Player = GetComponent<CharacterController>();
@@ -78,7 +69,8 @@ public class PC_Controller : Entity
         else
             FL_moveSpeed = FL_defaultSpeed;
 
-        anim_Player.SetBool("BL_Move", false);
+        if (anim_Player != null)
+            anim_Player.SetBool("BL_Move", false);
 
         MovePlayer();
         PlayerLook();
@@ -107,21 +99,25 @@ public class PC_Controller : Entity
     //-------------------------------------------------------
 
     //Rigidbody
-    void PlayerMove()
-    {
-        Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        direction = moveInput.normalized * FL_moveSpeed;
-    }
+    //void PlayerMove()
+    //{
+    //    Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+    //    direction = moveInput.normalized * FL_moveSpeed;
+    //}
 
     //Character Controller
     void MovePlayer()
     {
         Vector3 V_MoveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));                 //Get Axis Horizontal and Vertical represent typical WASD inputs, and outputs either 1 or -1 depending on what was pressed.
 
-        if (V_MoveDirection != new Vector3(0, 0, 0))
+        if (V_MoveDirection != new Vector3(0, 0, 0) && anim_Player != null)
             anim_Player.SetBool("BL_Move", true);
 
-        V_MoveDirection = FL_moveSpeed * V_MoveDirection;    //Convert this to a local vector (Otherwise is local, TransformDirection converts this). Adjust by speed.
+        //Isometric Movement
+        V_MoveDirection = FL_moveSpeed * V_MoveDirection;
+
+        //Third Person Movement
+        //V_MoveDirection = FL_moveSpeed * transform.TransformDirection(V_MoveDirection);    //Convert this to a local vector (Otherwise is local, TransformDirection converts this). Adjust by speed.
 
         CC_Player.Move(V_MoveDirection * Time.deltaTime);                              //Move! (Function as a part of Unity)
     }

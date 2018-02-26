@@ -306,9 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07259325c74af774691ec09dac81e7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 6
   damage: 100
-  killAfter: 1
+  killAfter: 0.5
   sound: 
 --- !u!114 &114127265567630296
 MonoBehaviour:

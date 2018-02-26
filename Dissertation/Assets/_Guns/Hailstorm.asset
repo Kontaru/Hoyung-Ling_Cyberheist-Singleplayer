@@ -14,8 +14,8 @@ MonoBehaviour:
   name: Hailstorm
   description: Infinite ammo
   bullet: {fileID: 1268593870044156, guid: e9dc19232c078194da70321d091d9dad, type: 2}
-  damage: 50
-  fireRate: 360
+  damage: 60
+  fireRate: 800
   reloadTime: 2
   maxAmmo: 300
   clipSize: 300
