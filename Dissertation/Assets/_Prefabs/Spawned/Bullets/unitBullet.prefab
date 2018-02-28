@@ -280,7 +280,7 @@ MonoBehaviour:
   speed: 1400
   damage: 0
   killAfter: 0.5
-  sound: 
+  sound: enemyshoot
 --- !u!135 &135712862217456794
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -34,24 +34,32 @@ public class RemainingEnemies : MonoBehaviour {
     public TextMeshProUGUI timeRemaining;
     public float minutes = 5;
     public float currentTime = 0;
-    [SerializeField] float fl_Time = 0;
+    float fl_Time = 0;
+    float fl_TimeSinceLoad = 0;
 
     // Use this for initialization
     void Start () {
         fl_Time = minutes * 60;
-	}
+
+        timeRemaining.text = string.Format("Time Remaining : " + Mathf.Floor(minutes) + ":00.00");
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        currentTime = Time.timeSinceLevelLoad;
-		if(killCount >= requiredCount)  waveEnd = true;
+        if (!BaseEnemy.BL_allCombat)
+        {
+            fl_TimeSinceLoad = Time.timeSinceLevelLoad;
+            return;
+        }
+        currentTime = Time.timeSinceLevelLoad - fl_TimeSinceLoad;
+		if (killCount >= requiredCount)  waveEnd = true;
         if (currentTime >= fl_Time) waveEnd = true;
 
         if(waveEnd && bl_LoadNext)
         {
             GameManager.instance.totalKillCount += killCount;
-            bl_LoadNext = false;
             GameManager.instance.NextScene();
+            bl_LoadNext = false;
         }
 
         KillCountUIUpdater();
@@ -72,9 +80,19 @@ public class RemainingEnemies : MonoBehaviour {
         float seconds = (fl_Time - currentTime) % 60;
 
         if (currentTime <= fl_Time)
-            timeRemaining.text = string.Format("Time Remaining : " 
-                + Mathf.Floor(minutes) 
-                + ":" + seconds.ToString("F2"));
+        {
+            if (seconds < 10)
+            {
+                timeRemaining.text = string.Format("Time Remaining : "
+                    + Mathf.Floor(minutes)
+                    + ":0" + seconds.ToString("F2"));
+            }else
+            {
+                timeRemaining.text = string.Format("Time Remaining : "
+                    + Mathf.Floor(minutes)
+                    + ":" + seconds.ToString("F2"));
+            }
+        }
 
     }
 }

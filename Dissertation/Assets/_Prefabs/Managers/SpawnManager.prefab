@@ -71,8 +71,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveEnd: 0
-  requiredCount: 2
+  bl_LoadNext: 1
+  killsRemaining: {fileID: 0}
+  requiredCount: 100
   killCount: 0
+  timeRemaining: {fileID: 0}
+  minutes: 3
+  currentTime: 0
 --- !u!114 &114617368557706904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList: []
   spawns: []
-  spawnLim: 20
+  spawnLim: 18
   enemycount: 0
   BL_CanSpawn: 1
+  enemiesPerSpawn: 6

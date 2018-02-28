@@ -24,6 +24,7 @@ public class SpecialsSpawner : SpawnManager
 
     void Update()
     {
+        UpdateList();
         if (BaseEnemy.BL_allCombat) BL_CanSpawn = true;
         if (enemycount == spawnLim) BL_CanSpawn = false;
         if (CheckLimits()) BL_CanSpawn = false;
@@ -32,8 +33,6 @@ public class SpecialsSpawner : SpawnManager
         {
             if (Time.time > cooldown + 5.0f)
                 SpawnSpecials();
-
-            UpdateList();
         }
         else
         {

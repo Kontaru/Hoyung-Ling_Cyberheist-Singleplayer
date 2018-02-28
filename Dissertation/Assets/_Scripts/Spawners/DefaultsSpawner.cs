@@ -22,8 +22,11 @@ public class DefaultsSpawner : SpawnManager
 
     #endregion
 
+    public int enemiesPerSpawn = 5;
+
     void Update()
     {
+        UpdateList();
         if (BaseEnemy.BL_allCombat) BL_CanSpawn = true;
         if (enemycount == spawnLim) BL_CanSpawn = false;
         if (CheckLimits()) BL_CanSpawn = false;
@@ -32,10 +35,9 @@ public class DefaultsSpawner : SpawnManager
         {
             if (Time.time > cooldown + 7.0f)
             {
-                for (int burstCount = 0; burstCount < 10; burstCount++)
+                for (int burstCount = 0; burstCount < enemiesPerSpawn; burstCount++)
                 {
                     SpawnDefaults();
-                    UpdateList();
                 }
 
                 cooldown = Time.time;

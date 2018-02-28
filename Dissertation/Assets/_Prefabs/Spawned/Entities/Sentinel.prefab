@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224260359387660590}
   - component: {fileID: 222542990261552254}
   - component: {fileID: 114763068539285746}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 224963574053569152}
   - component: {fileID: 222416314845225462}
   - component: {fileID: 114572212113344070}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 223035839579438534}
   - component: {fileID: 114747060715182472}
   - component: {fileID: 114485829735632308}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Healthbar  Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705104415274074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.994438, y: 6.759925e-17, z: -5.167206}
+  m_LocalPosition: {x: -48.649612, y: 6.4954547e-16, z: 50.14633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4679935778820586}
@@ -366,7 +366,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c30d28ff597e26545865de584689b241, type: 2}
+  - {fileID: 2100000, guid: 78b39a60920f9534bb64e4e9d61807fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
   huntDistance: 20
   combatDistance: 15
   damage: 5
-  accuracy: 8
+  accuracy: 50
   go_projectilePrefab: {fileID: 1999545829503544, guid: efb6e22dda26dea44ae8bbfc737c9015,
     type: 2}
   fl_shotCooldown: 6

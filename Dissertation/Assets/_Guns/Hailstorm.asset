@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 60
   fireRate: 800
   reloadTime: 2
-  maxAmmo: 300
-  clipSize: 300
+  maxAmmo: 200
+  clipSize: 200
   infiniteClip: 0
   infiniteAmmo: 0

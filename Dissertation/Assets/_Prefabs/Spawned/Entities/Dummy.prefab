@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 223398712969464894}
   - component: {fileID: 114869584472446174}
   - component: {fileID: 114323441346152410}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Healthbar  Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 224847665503186024}
   - component: {fileID: 222423460902527586}
   - component: {fileID: 114346119196250636}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 224060221044249198}
   - component: {fileID: 222469949972277892}
   - component: {fileID: 114225212529675722}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 
     public Gun gun;
     public GameObject eject;
+    public LayerMask obstacleMask;
 
     [Header("Player Actions")]
     public bool reload;
@@ -21,6 +22,9 @@ public class Weapon : MonoBehaviour
     public int currentClipSize;
 
     public float FL_coolDown = 0;
+
+    [Header("Audio")]
+    public string reloadSound;
 
     void Start()
     {
@@ -97,9 +101,11 @@ public class Weapon : MonoBehaviour
         var fwd = transform.TransformDirection(Vector3.forward);
         RaycastHit coll;
         // Raycast to check if the view from the target to player runs into an obsticle, if not adding the target to the list of targets
-        if (Physics.Raycast(transform.position, fwd, out coll))
+        if (Physics.Raycast(eject.transform.position, fwd, out coll))
         {
-            coll.transform.gameObject.SendMessage("TakeDamage", gun.damage, SendMessageOptions.DontRequireReceiver);
+            GameObject hit = coll.transform.gameObject;
+
+            hit.SendMessage("TakeDamage", gun.damage, SendMessageOptions.DontRequireReceiver);
         }
 
         Instantiate(gun.bullet,

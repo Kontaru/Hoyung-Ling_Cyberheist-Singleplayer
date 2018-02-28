@@ -8313,6 +8313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 2f0d1e622ce64de42a3976c7668193b8, type: 2}
   eject: {fileID: 1892618751927754}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4
   reload: 0
   shoot: 0
   empty: 0
@@ -8320,3 +8323,4 @@ MonoBehaviour:
   currentAmmo: 0
   currentClipSize: 0
   FL_coolDown: 0
+  reloadSound: reload

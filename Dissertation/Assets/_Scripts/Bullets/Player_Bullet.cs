@@ -22,15 +22,10 @@ public class Player_Bullet : Bullet
                 {
                     //Send damage depending on what kind of enemy has been hit
                     //coll.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-                    //Destroy the bullet
-                    Destroy(gameObject);
                 }
             }
-            else
-            {
-                Destroy(gameObject);
-            }
 
+            Destroy(gameObject);
 
         }
         else

@@ -194,8 +194,8 @@ abstract public class BaseEnemy : Entity {
     virtual public void FireBullet()
     {
         // Create a bullet and reset the shot timer
-        int v_accuracy = Random.Range(0, accuracy);
-        if (v_accuracy != 1)
+        int v_accuracy = Random.Range(0, 100);
+        if (v_accuracy < accuracy)
         {
             GO_Target.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             Instantiate(go_projectilePrefab, 
