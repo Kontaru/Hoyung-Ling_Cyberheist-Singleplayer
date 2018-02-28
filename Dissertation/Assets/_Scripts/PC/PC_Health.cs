@@ -16,7 +16,7 @@ public class PC_Health : MonoBehaviour {
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+        healthBar.sizeDelta = new Vector2(currentHealth * 4, healthBar.sizeDelta.y);
         if (currentHealth <= 0)
         {
             if (destroyOnDeath)

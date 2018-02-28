@@ -22,6 +22,8 @@ public class SpecialsSpawner : SpawnManager
 
     #endregion
 
+    public int enemiesPerSpawn = 1;
+
     void Update()
     {
         UpdateList();
@@ -32,7 +34,14 @@ public class SpecialsSpawner : SpawnManager
         if (BL_CanSpawn)
         {
             if (Time.time > cooldown + 5.0f)
-                SpawnSpecials();
+            {
+                for (int burstCount = 0; burstCount < enemiesPerSpawn; burstCount++)
+                {
+                    SpawnSpecials();
+                }
+
+                cooldown = Time.time;
+            }
         }
         else
         {

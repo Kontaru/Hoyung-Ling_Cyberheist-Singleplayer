@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
     public bool BL_Pause;
     public float totalKillCount;
 
+    public float wave1Kills;
+    public float wave2Kills;
+    public float wave3Kills;
+
     void Awake()
     {
         if (instance == null)

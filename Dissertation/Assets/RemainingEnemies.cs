@@ -25,6 +25,10 @@ public class RemainingEnemies : MonoBehaviour {
     public bool waveEnd = false;
     public bool bl_LoadNext = true;
 
+    public bool Wave1 = false;
+    public bool Wave2 = false;
+    public bool Wave3 = false;
+
     [Header("Kills Left")]
     public TextMeshProUGUI killsRemaining;
     public int requiredCount = 2;
@@ -52,12 +56,19 @@ public class RemainingEnemies : MonoBehaviour {
             return;
         }
         currentTime = Time.timeSinceLevelLoad - fl_TimeSinceLoad;
-		if (killCount >= requiredCount)  waveEnd = true;
         if (currentTime >= fl_Time) waveEnd = true;
 
         if(waveEnd && bl_LoadNext)
         {
             GameManager.instance.totalKillCount += killCount;
+
+            if (Wave1)
+                GameManager.instance.wave1Kills = killCount;
+            if (Wave2)
+                GameManager.instance.wave2Kills = killCount;
+            if (Wave3)
+                GameManager.instance.wave3Kills = killCount;
+
             GameManager.instance.NextScene();
             bl_LoadNext = false;
         }
