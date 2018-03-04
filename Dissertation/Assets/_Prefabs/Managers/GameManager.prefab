@@ -54,7 +54,7 @@ MonoBehaviour:
   loadingScreen: {fileID: 0}
   slider: {fileID: 0}
   KC_Shoot: 323
-  KC_Missile: 113
+  KC_Missile: 0
   KC_Punch: 0
   GO_Player:
   - {fileID: 0}
@@ -105,3 +105,6 @@ MonoBehaviour:
   wave1Kills: 0
   wave2Kills: 0
   wave3Kills: 0
+  wave1Time: 0
+  wave2Time: 0
+  wave3Time: 0
