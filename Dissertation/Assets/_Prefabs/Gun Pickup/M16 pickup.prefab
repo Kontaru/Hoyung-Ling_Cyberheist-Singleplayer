@@ -11314,6 +11314,7 @@ MonoBehaviour:
   pickup: {fileID: 114579590317445242, guid: 99cb22483226f204ba49ed2710bd3f76, type: 2}
   respawn: 1
   respawnDelay: 2
+  pickupAudio: reload
   Timer: {fileID: 114501669963419948}
 --- !u!114 &114501669963419948
 MonoBehaviour:

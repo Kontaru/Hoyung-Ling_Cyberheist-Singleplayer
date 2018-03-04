@@ -178,8 +178,15 @@ abstract public class BaseEnemy : Entity {
 
         if (Time.time > FL_Cooldown)
         {
-            FireBullet();
-            FL_Cooldown = Time.time + fl_shotCooldown * GameManager.instance.currentMode.modEnemyFR;
+            RaycastHit hit;
+
+            if (Physics.Linecast(V_Target, transform.position, out hit))
+            {
+                FireBullet();
+                FL_Cooldown = Time.time + fl_shotCooldown * GameManager.instance.currentMode.modEnemyFR;
+            }
+            else
+                Debug.DrawLine(V_Target, transform.position, Color.red);
         }
 
         //---
@@ -197,7 +204,7 @@ abstract public class BaseEnemy : Entity {
         int v_accuracy = Random.Range(0, 100);
         if (v_accuracy < accuracy)
         {
-            GO_Target.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+            //GO_Target.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             Instantiate(go_projectilePrefab, 
                 transform.position + transform.TransformDirection(new Vector3(0, 1, 1.5F)), 
                 transform.rotation);

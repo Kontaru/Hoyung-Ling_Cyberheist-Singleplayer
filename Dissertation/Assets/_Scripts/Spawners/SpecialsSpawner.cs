@@ -22,6 +22,8 @@ public class SpecialsSpawner : SpawnManager
 
     #endregion
 
+    public float delay = 2.0f;
+
     public int enemiesPerSpawn = 1;
 
     void Update()
@@ -39,6 +41,16 @@ public class SpecialsSpawner : SpawnManager
                 {
                     SpawnSpecials();
                 }
+
+                if (delay >= 0.0f)
+                    delay -= 0.4f;
+                else if (delay >= -1.0f)
+                    delay -= 0.5f;
+                else if (delay >= -2.0f)
+                    delay -= 0.4f;
+                else if (delay >= -3.0f)
+                    delay -= 0.2f;
+
 
                 cooldown = Time.time;
             }

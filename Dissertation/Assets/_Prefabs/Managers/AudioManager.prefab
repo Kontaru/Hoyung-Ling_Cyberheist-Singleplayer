@@ -76,7 +76,7 @@ MonoBehaviour:
     lerpStartTime: 0
   - name: reload
     clip: {fileID: 8300000, guid: 336b50a13d5f5e944bde53eceb10513d, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
     lerpStartTime: 0
   - name: shoot
     clip: {fileID: 8300000, guid: 829ffe07e12e54c499f7437313d0d976, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -119,8 +119,8 @@ MonoBehaviour:
     currentTime: 0
     lerpStartTime: 0
   - name: enemyshoot
-    clip: {fileID: 8300000, guid: 829ffe07e12e54c499f7437313d0d976, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: bac8b6aa6da32a34fba96e7c9c2be38f, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}

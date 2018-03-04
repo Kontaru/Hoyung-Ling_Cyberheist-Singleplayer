@@ -59,7 +59,7 @@ MonoBehaviour:
   GO_Player:
   - {fileID: 0}
   - {fileID: 0}
-  CurrentDifficulty: 0
+  CurrentDifficulty: 3
   Modes:
   - name: Easy
     mode: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
     description: "For those looking for a challenge. Enemies are seasoned \u2013 they
       have certainly experienced rough combat. You can expect fierce opposition. With
       the number of enemies, you may need to reposition often."
-    modEnemyHP: 1.3
+    modEnemyHP: 1.2
     modEnemyFR: 1.2
     modEnemyAwareness: 1.5
   - name: Intense
@@ -97,8 +97,11 @@ MonoBehaviour:
     name: 
     mode: 0
     description: 
-    modEnemyHP: 0
-    modEnemyFR: 0
-    modEnemyAwareness: 0
+    modEnemyHP: 1
+    modEnemyFR: 1
+    modEnemyAwareness: 1
   BL_Pause: 0
   totalKillCount: 0
+  wave1Kills: 0
+  wave2Kills: 0
+  wave3Kills: 0

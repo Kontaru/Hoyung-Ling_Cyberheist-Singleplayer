@@ -22,6 +22,7 @@ public class PC_Health : MonoBehaviour {
             if (destroyOnDeath)
             {
                 Destroy(gameObject);
+                RemainingEnemies.instance.waveEnd = true;
             }
             else
             {

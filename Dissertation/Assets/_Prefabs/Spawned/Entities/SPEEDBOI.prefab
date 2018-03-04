@@ -394,7 +394,7 @@ MonoBehaviour:
   accuracy: 25
   go_projectilePrefab: {fileID: 1999545829503544, guid: efb6e22dda26dea44ae8bbfc737c9015,
     type: 2}
-  fl_shotCooldown: 6
+  fl_shotCooldown: 2
 --- !u!114 &114055598501724822
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15180,3 +15180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickup: {fileID: 114711759485051634, guid: 24114e2e29f053544bdae2272b7f0133, type: 2}
   respawn: 0
+  respawnDelay: 0
+  pickupAudio: reload
+  Timer: {fileID: 0}

@@ -10,6 +10,8 @@ public class Gunpickup : MonoBehaviour {
     public float respawnDelay;
     bool acquired = false;
 
+    public string pickupAudio;
+
     public TextMeshProUGUI Timer;
 
     private void Start()
@@ -27,6 +29,7 @@ public class Gunpickup : MonoBehaviour {
             if (playerGun != null)
             {
                 playerGun.pickup = pickup;
+                AudioManager.instance.Play(pickupAudio);
 
                 transform.GetChild(0).gameObject.SetActive(false);
                 acquired = true;

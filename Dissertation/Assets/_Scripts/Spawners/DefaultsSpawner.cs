@@ -8,6 +8,7 @@ public class DefaultsSpawner : SpawnManager
     #region Typical Singleton Format
 
     public static DefaultsSpawner instance;
+    public float delay = 2.0f;
 
     void Awake()
     {
@@ -33,12 +34,22 @@ public class DefaultsSpawner : SpawnManager
 
         if (BL_CanSpawn)
         {
-            if (Time.time > cooldown + 7.0f)
+            if (Time.time > cooldown + 7.0f + delay)
             {
                 for (int burstCount = 0; burstCount < enemiesPerSpawn; burstCount++)
                 {
                     SpawnDefaults();
                 }
+
+                if (delay >= 0.0f)
+                    delay -= 0.4f;
+                else if (delay >= -1.0f)
+                    delay -= 0.5f;
+                else if (delay >= -2.0f)
+                    delay -= 0.4f;
+                else if (delay >= -3.0f)
+                    delay -= 0.2f;
+
 
                 cooldown = Time.time;
             }

@@ -14,10 +14,10 @@ MonoBehaviour:
   name: M16
   description: Infinite ammo
   bullet: {fileID: 1268593870044156, guid: e9dc19232c078194da70321d091d9dad, type: 2}
-  damage: 60
-  fireRate: 600
+  damage: 40
+  fireRate: 500
   reloadTime: 1
-  maxAmmo: 300
+  maxAmmo: 120
   clipSize: 30
   infiniteClip: 0
   infiniteAmmo: 0

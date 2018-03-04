@@ -10,16 +10,19 @@ EditorBuildSettings:
     guid: 16decd63b1e435645a79c6a22092291c
   - enabled: 1
     path: Assets/_Scenes/_Wave1.unity
-    guid: 826b761118163f54182cbc1e68281fb3
+    guid: 95b98d150593bcd49b01d5f522f9a1e5
   - enabled: 1
     path: Assets/_Scenes/_PreWave[1].unity
     guid: 4e096a3a528235a45bc129a310a9b9de
   - enabled: 1
     path: Assets/_Scenes/_Wave2.unity
-    guid: 4cba3c9c4563d5e4a88ba3aaf7e3426c
+    guid: 5cc0e8b919bacc94693a72816dbb87c4
   - enabled: 1
     path: Assets/_Scenes/_PreWave[2].unity
     guid: 974285de4b7047a4d8d2164474287ec2
   - enabled: 1
     path: Assets/_Scenes/_Wave3.unity
     guid: 74681fe6d2b11cd40b6d9567ea4ca432
+  - enabled: 1
+    path: Assets/_Scenes/_End.unity
+    guid: edaf92fef453d4e4aac76cd7d9fd940f

@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
     public float wave2Kills;
     public float wave3Kills;
 
+    public float wave1Time;
+    public float wave2Time;
+    public float wave3Time;
+
     void Awake()
     {
         if (instance == null)

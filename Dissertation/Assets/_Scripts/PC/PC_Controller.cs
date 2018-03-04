@@ -85,10 +85,11 @@ public class PC_Controller : Entity
     {
         if (Vector3.Distance(transform.position, playerLook.transform.position) > 0.1f)
         {
-            Vector3 lookPos = playerLook.transform.position - transform.position;
+            Vector3 lookPos = playerLook.transform.position;
             lookPos.y = 0;
-            Quaternion rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
+            transform.LookAt(lookPos);
+            //Quaternion rotation = Quaternion.LookRotation(lookPos);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5f * Time.deltaTime);
         }
     }
 

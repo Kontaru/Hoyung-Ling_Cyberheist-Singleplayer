@@ -44,8 +44,9 @@ public class RemainingEnemies : MonoBehaviour {
     // Use this for initialization
     void Start () {
         fl_Time = minutes * 60;
+        float seconds = fl_Time % 60;
 
-        timeRemaining.text = string.Format("Time Remaining : " + Mathf.Floor(minutes) + ":00.00");
+        timeRemaining.text = string.Format("Time Remaining : " + Mathf.Floor(minutes) + ":" + seconds.ToString("F2"));
     }
 	
 	// Update is called once per frame
@@ -60,14 +61,24 @@ public class RemainingEnemies : MonoBehaviour {
 
         if(waveEnd && bl_LoadNext)
         {
+            BaseEnemy.BL_allCombat = false;
             GameManager.instance.totalKillCount += killCount;
 
             if (Wave1)
+            {
                 GameManager.instance.wave1Kills = killCount;
+                GameManager.instance.wave1Time = Mathf.Round(currentTime);
+            }
             if (Wave2)
+            {
                 GameManager.instance.wave2Kills = killCount;
+                GameManager.instance.wave2Time = Mathf.Round(currentTime);
+            }
             if (Wave3)
+            {
                 GameManager.instance.wave3Kills = killCount;
+                GameManager.instance.wave3Time = Mathf.Round(currentTime);
+            }
 
             GameManager.instance.NextScene();
             bl_LoadNext = false;

@@ -15,26 +15,14 @@ public class Enemy_Bullet : Bullet
         //If there is a collider
         if (coll != null)
         {
-            if (coll.gameObject.GetComponent<Entity>() != null)
+            if (coll.gameObject == GameManager.instance.GO_Player[0] || coll.gameObject == GameManager.instance.GO_Player[1])
             {
-                //If the collider is player
-                if (coll.gameObject.GetComponent<Entity>().EntityType == Entity.Entities.Player)
-                {
-                    //Send damage depending on what kind of enemy has been hit
-                    //coll.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-                    //Destroy the bullet
-                    Destroy(gameObject);
-                }
-            }
-            else
-            {
+                //Send damage depending on what kind of enemy has been hit
+                coll.gameObject.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+                //Destroy the bullet
+                Debug.Log("Hit + " + coll.gameObject.name);
                 Destroy(gameObject);
             }
-        }
-        else
-        {
-            Debug.Log("Enemy Bullet: Outside Loop");
-            Destroy(gameObject);
         }
     }
 }

@@ -504,10 +504,10 @@ MonoBehaviour:
   huntDistance: 20
   combatDistance: 15
   damage: 5
-  accuracy: 50
+  accuracy: 100
   go_projectilePrefab: {fileID: 1999545829503544, guid: efb6e22dda26dea44ae8bbfc737c9015,
     type: 2}
-  fl_shotCooldown: 6
+  fl_shotCooldown: 4
 --- !u!114 &114747060715182472
 MonoBehaviour:
   m_ObjectHideFlags: 1
