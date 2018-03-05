@@ -91,8 +91,8 @@ MonoBehaviour:
   waveEnd: 0
   bl_LoadNext: 1
   Wave1: 0
-  Wave2: 0
-  Wave3: 1
+  Wave2: 1
+  Wave3: 0
   killsRemaining: {fileID: 0}
   requiredCount: 100
   killCount: 0
@@ -116,4 +116,4 @@ MonoBehaviour:
   enemycount: 0
   BL_CanSpawn: 1
   delay: 1.6
-  enemiesPerSpawn: 2
+  enemiesPerSpawn: 1

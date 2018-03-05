@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnList: []
   spawns: []
-  spawnLim: 0
+  spawnLim: 1
   enemycount: 0
   BL_CanSpawn: 1
   delay: 1.6

@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: 4e096a3a528235a45bc129a310a9b9de
   - enabled: 1
     path: Assets/_Scenes/_Wave2.unity
-    guid: 5cc0e8b919bacc94693a72816dbb87c4
+    guid: 26f2ea58c6e794348b0dab702abbb9a5
   - enabled: 1
     path: Assets/_Scenes/_PreWave[2].unity
     guid: 974285de4b7047a4d8d2164474287ec2
